@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرافي | MARAFI - عبق الفخامة العربية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0a0a0c;
+            --navy-soft: #16213e;
+            --accent-gold: #c5a059;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            background-color: var(--primary-dark);
+            color: var(--text-gray);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #000;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .logo-img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            background: rgba(22, 33, 62, 0.95);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--accent-gold);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--accent-gold); }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.8)), url('https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h2 { color: #fff; font-size: 2.8em; margin-bottom: 15px; }
+
+        .section { padding: 80px 20px; max-width: 1100px; margin: auto; text-align: center; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 30px;
+            border-radius: 8px;
+            transition: 0.4s;
+        }
+
+        .product-card:hover { 
+            border-color: var(--accent-gold); 
+            transform: translateY(-10px);
+        }
+
+        .contact-box {
+            background: #16213e;
+            padding: 50px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--accent-gold);
+            text-decoration: none;
+            transition: 0.3s;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        footer { padding: 40px; text-align: center; border-top: 1px solid #1a1a1a; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://up6.cc/2024/11/173244222045231.jpg" alt="MARAFI Logo" class="logo-img">
+    <p style="color: var(--accent-gold); letter-spacing: 2px;">عطور مرافي.. حيث ترسو الفخامة</p>
+</header>
+
+<nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#about">قصتنا</a>
+    <a href="#products">المجموعة العطرية</a>
+    <a href="#contact">تواصل معنا</a>
+</nav>
+
+<section id="home" class="hero">
+    <h2>إبداع عطري لكل العرب</h2>
+    <p style="max-width: 800px; margin: auto; font-size: 1.2em; color: #ddd;">مرافي هو مزيج ساحر من المواد العطرية الطبيعية والاصطناعية، صُممت لتعزيز الجاذبية وإضفاء لمسة من الأناقة والثقة بالنفس فقط من أجلكم.</p>
+</section>
+
+<section id="about" class="section">
+    <h2 style="color: #fff; font-size: 2em;">من نحن</h2>
+    <p style="max-size: 800px; margin: auto;">بشغف التميز بدأنا رحلتنا في صناعة أفخم العطور الرجالية والنسائية. بدأ براند مرافي عام 2025 وبشهادة من العملاء ارتقينا لننال رضاكم، فنحن كوكبة من التميز لننال رضاكم ثم ترسون على مرافينا، عطور مرافي براندكم الكافي.</p>
+</section>
+
+<section id="products" class="section">
+    <h2 style="color: #fff;">استكشف مجموعتنا</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <div style="height: 200px; background: #050505; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">صورة المنتج قريباً</div>
+            <h3>عطر مرافي الأساسي</h3>
+            <p>مزيج كلاسيكي يعكس الهوية العربية.</p>
+            <a href="mailto:hayat.albukhit@gmail.com" class="btn">اطلب الآن</a>
+        </div>
+        <div class="product-card">
+            <div style="height: 200px; background: #050505; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">صورة المنتج قريباً</div>
+            <h3>عطر مرافي ليميتد</h3>
+            <p>إصدار خاص لعشاق التفرد.</p>
+            <a href="mailto:hayat.albukhit@gmail.com" class="btn">اطلب الآن</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="contact-box">
+        <h2 style="color: #fff;">تواصل مع براند مرافي</h2>
+        <p>يسعدنا استقبال طلباتكم من جميع الدول العربية عبر البريد الإلكتروني:</p>
+        <h3 style="color: #fff; margin: 20px 0;">hayat.albukhit@gmail.com</h3>
+        <a href="mailto:hayat.albukhit@gmail.com" class="btn">راسلنا مباشرة</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 براند مرافي (MARAFI). جميع الحقوق محفوظة لجميع الدول العربية.</p>
+</footer>
+
+</body>
+</html>
