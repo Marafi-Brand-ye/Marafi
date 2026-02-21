@@ -28,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* تحسين شريط التنقل */
+        /* شريط التنقل */
         nav {
             display: flex;
             justify-content: center;
@@ -79,7 +79,7 @@
             transition: var(--transition);
         }
 
-        /* قسم البطولة العالمي */
+        /* تعديل قسم الـ Hero ليتناسب مع حجم الخلفية في الصورة */
         .hero {
             height: 100vh;
             display: flex;
@@ -88,11 +88,13 @@
             align-items: center;
             text-align: center;
             position: relative;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            /* تم تعديل الخلفية هنا لتكون متناسقة تماماً كما في الصورة المرفقة */
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
                         url('https://image2url.com/r2/default/images/1771328793013-027f3b19-0869-4c69-9371-0853619cddb9.jpg');
-            background-size: cover;
+            background-size: contain; /* هذا يجعل الصورة تظهر كاملة دون تمدد مشوه */
+            background-repeat: no-repeat;
             background-position: center;
-            background-attachment: fixed;
+            background-color: #000;
             overflow: hidden;
         }
 
@@ -113,6 +115,7 @@
             margin-bottom: 50px;
             font-weight: 300;
             animation: fadeInUp 2s ease-out;
+            padding: 0 20px;
         }
 
         /* الأقسام وتنسيقها */
@@ -126,7 +129,7 @@
             letter-spacing: 3px;
         }
 
-        /* بطاقات المنتجات العالمية */
+        /* بطاقات المنتجات */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -143,57 +146,20 @@
             flex-direction: column;
         }
 
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(197, 160, 89, 0.1), transparent);
-            transition: 0.8s;
-            z-index: 2;
-        }
-
-        .product-card:hover::before { left: 200%; }
-
         .product-card:hover {
             transform: translateY(-20px);
             border-color: var(--accent-gold);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .product-img-container {
-            height: 450px;
-            overflow: hidden;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
+        .product-img-container { height: 450px; overflow: hidden; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
         .product-card:hover .product-img { transform: scale(1.08); }
-
         .product-info { padding: 40px 25px; flex-grow: 1; }
+        .product-card h3 { color: var(--white); font-size: 1.4em; margin-bottom: 15px; }
+        .product-desc { font-size: 0.95em; margin-bottom: 25px; color: var(--text-gray); border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; text-align: justify; }
 
-        .product-card h3 { 
-            color: var(--white); 
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .product-desc {
-            font-size: 0.95em;
-            margin-bottom: 25px;
-            color: var(--text-gray);
-            border-top: 1px solid rgba(197, 160, 89, 0.1);
-            padding-top: 15px;
-            text-align: justify;
-        }
-
-        /* الأزرار الراقية */
+        /* الأزرار */
         .btn {
             display: inline-block;
             padding: 18px 45px;
@@ -210,52 +176,26 @@
             z-index: 1;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 0; height: 100%;
-            background: var(--accent-gold);
-            transition: var(--transition);
-            z-index: -1;
-        }
+        .btn:hover { color: #000; background: var(--accent-gold); }
 
-        .btn:hover { color: #000; }
-        .btn:hover::before { width: 100%; }
-
-        /* صندوق التواصل المتناسق */
+        /* صندوق التواصل */
         .contact-box {
             background: linear-gradient(145deg, #0f0f11, #050505);
-            padding: 120px 20px; /* العودة للحجم المتناسق */
+            padding: 120px 20px;
             border: 1px solid rgba(197, 160, 89, 0.2);
             max-width: 1000px;
             margin: 60px auto 0;
-            text-align: center;
         }
 
-        footer { 
-            padding: 80px; 
-            background: #000; 
-            border-top: 1px solid rgba(197, 160, 89, 0.1);
-            font-weight: 300;
-            text-align: center;
-        }
+        footer { padding: 80px; background: #000; border-top: 1px solid rgba(197, 160, 89, 0.1); text-align: center; }
 
-        /* الحركات */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
-        }
-
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in { opacity: 0; transform: translateY(50px); transition: 1.2s ease-out; }
+        .visible { opacity: 1; transform: translateY(0); }
 
     </style>
 </head>
@@ -282,69 +222,46 @@
 
 <section id="about" class="section fade-in">
     <h2 class="section-title">إرث مرافي</h2>
-    <p style="max-width: 900px; margin: auto; font-size: 1.3em; font-weight: 300; color: #d1d1d1;">بشغف التميز، استهلت مرافي رحلتها في عالم العطور الفاخرة عام 2025. نحن لا نبتكر روائح، بل نصيغ هويات عطرية تجسد الرقي العربي وتواكب الحداثة العالمية، لنضع بين يديك عبقاً يرسو في عمق الذاكرة.</p>
+    <p style="max-width: 900px; margin: auto; font-size: 1.3em; font-weight: 300; color: #d1d1d1;">بشغف التميز، استهلت مرافي رحلتها في عالم العطور الفاخرة عام 2025. نحن لا نبتكر روائح، بل نصيغ هويات عطرية تجسد الرقي العربي وتواكب الحداثة العالمية.</p>
 </section>
 
 <section id="identity" class="section fade-in" style="background: #08080a; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
     <h2 class="section-title">الفلسفة الفنية</h2>
-    <p style="max-width: 900px; margin: auto; font-size: 1.3em; font-weight: 300;">فلسفتنا ترتكز على "رسوّ الفخامة". كل قطرة من عطورنا مصممة لتكون توقيعاً شخصياً فريداً، يترك أثراً لا يُمحى وطابعاً لا يُنسى لمن يقدر معنى الجودة الاستثنائية.</p>
+    <p style="max-width: 900px; margin: auto; font-size: 1.3em; font-weight: 300;">فلسفتنا ترتكز على "رسوّ الفخامة". كل قطرة من عطورنا مصممة لتكون توقيعاً شخصياً فريداً.</p>
 </section>
 
 <section id="products" class="section">
     <h2 class="section-title fade-in">المجموعة المختارة</h2>
     <div class="product-grid">
         <div class="product-card fade-in">
-            <div class="product-img-container">
-                <img src="https://image2url.com/r2/default/images/1771322264612-5d98939e-a9b9-44df-a80e-15cb04ca28f6.png" alt="مرافي 301" class="product-img">
-            </div>
+            <div class="product-img-container"><img src="https://image2url.com/r2/default/images/1771322264612-5d98939e-a9b9-44df-a80e-15cb04ca28f6.png" class="product-img"></div>
             <div class="product-info">
                 <h3>MARAFI 301 (FOR MEN)</h3>
-                <p>الأفخم برائحته الثابتة، مدموج بأكثر من زيوت عطرية عالمية.</p>
-                <div class="product-desc">
-                    تحفة عطرية تعكس الهيبة والوقار؛ تفتتح بنفحات بخورية فاخرة ممتزجة بلمسات من الجلد الملكي، لينساب في قلبها عبق التوابل الشرقية الدافئة، وتستقر على قاعدة عميقة من خشب الأرز النادر والعنبر الأسود، لتمنحك حضوراً طاغياً لا يغيب.
-                </div>
+                <div class="product-desc">تحفة عطرية تعكس الهيبة والوقار؛ تفتتح بنفحات بخورية فاخرة ممتزجة بلمسات من الجلد الملكي.</div>
                 <a href="mailto:Marafi.ye.2@gmail.com?subject=Request Marafi 301" class="btn">تواصل معنا</a>
             </div>
         </div>
-
         <div class="product-card fade-in">
-            <div class="product-img-container">
-                <img src="https://image2url.com/r2/default/images/1771322560581-b04b0468-41f2-4027-a3bc-9d9216f7e172.png" alt="مرافي 201" class="product-img">
-            </div>
+            <div class="product-img-container"><img src="https://image2url.com/r2/default/images/1771322560581-b04b0468-41f2-4027-a3bc-9d9216f7e172.png" class="product-img"></div>
             <div class="product-info">
                 <h3>MARAFI 201 (FOR WOMEN)</h3>
-                <p>تم اختيار هذا العطر بكل حب ليكتشف المشاعر الحقيقيه.</p>
-                <div class="product-desc">
-                    مزيج ساحر يفتتح بنوتات التوت البري والياسمين، مع قلب من الكراميل الدافئ والورد الطائفي، يرتكز على قاعدة مخملية من الفانيليا والبرغموت، ليجسد الرقة في أبهى صورها.
-                </div>
+                <div class="product-desc">مزيج ساحر يفتتح بنوتات التوت البري والياسمين، مع قلب من الكراميل الدافئ والورد الطائفي.</div>
                 <a href="mailto:Marafi.ye.2@gmail.com?subject=Request Marafi 201" class="btn">تواصل معنا</a>
             </div>
         </div>
-
         <div class="product-card fade-in">
-            <div class="product-img-container">
-                <img src="https://image2url.com/r2/default/images/1771323974957-8ca6c9c0-95d2-46e1-8895-3cb4222af25e.png" alt="مرافي 302" class="product-img">
-            </div>
+            <div class="product-img-container"><img src="https://image2url.com/r2/default/images/1771323974957-8ca6c9c0-95d2-46e1-8895-3cb4222af25e.png" class="product-img"></div>
             <div class="product-info">
                 <h3>MARAFI 302 (FOR MEN)</h3>
-                <p>بعد نجاح عطر مرافي ٣٠١ تم صناعة عطر ٣٠٢ لتجديد العهد.</p>
-                <div class="product-desc">
-                    توليفة استثنائية من العود الصافي بفوحان جبار يجوب أركان المكان بمجرد إطلالتك؛ يمزج بين حدة دهن العود العتيق ونقاء الخشب المدخن، ليخلق هالة من الفخامة الملكية التي تفرض سيطرتها وتترك أثراً مهيباً لا يمكن تجاهله.
-                </div>
+                <div class="product-desc">توليفة استثنائية من العود الصافي بفوحان جبار يجوب أركان المكان بمجرد إطلالتك.</div>
                 <a href="mailto:Marafi.ye.2@gmail.com?subject=Request Marafi 302" class="btn">تواصل معنا</a>
             </div>
         </div>
-
         <div class="product-card fade-in">
-            <div class="product-img-container">
-                <img src="https://image2url.com/r2/default/images/1771324585056-db5625b6-8042-4678-81a6-733331ceeb83.png" alt="مرافي 303" class="product-img">
-            </div>
+            <div class="product-img-container"><img src="https://image2url.com/r2/default/images/1771324585056-db5625b6-8042-4678-81a6-733331ceeb83.png" class="product-img"></div>
             <div class="product-info">
                 <h3>MARAFI 303 (FOR MEN)</h3>
-                <p>مرافي 303 سحر البحر والطبيعه ستشعرون بها هنا.</p>
-                <div class="product-desc">
-                    توليفة مائية منعشة تنقلك إلى سواحل البحر المتوسط، بمزيج من رذاذ البحر، اللافندر الجبلي، ولمسات من نجيل الهند، لتمنحك طاقة وحيوية تدوم طوال اليوم.
-                </div>
+                <div class="product-desc">توليفة مائية منعشة تنقلك إلى سواحل البحر المتوسط بمزيج من رذاذ البحر واللافندر.</div>
                 <a href="mailto:Marafi.ye.2@gmail.com?subject=Request Marafi 303" class="btn">تواصل معنا</a>
             </div>
         </div>
@@ -364,15 +281,11 @@
 </footer>
 
 <script>
-    const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-    }, observerOptions);
-
+    }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
